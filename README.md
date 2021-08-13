@@ -1,13 +1,13 @@
-# JsonApiNormalizer
+# Japin
 
-Json API Normalizer gem is Ruby implementation of [json-api-normalizer](https://github.com/yury-dymov/json-api-normalizer) provides data normalization and formating for json api response like data.
+Japin gem is Ruby implementation of [json-api-normalizer](https://github.com/yury-dymov/json-api-normalizer) provides data normalization and formating for json api response like data.
 
 ## Installation
 
 Add this line to your application's Gemfile:
 
 ```ruby
-gem 'json_api_normalizer'
+gem 'japin'
 ```
 
 And then execute:
@@ -16,14 +16,14 @@ And then execute:
 
 Or install it yourself as:
 
-    $ gem install json_api_normalizer
+    $ gem install japin
 
 ## Usage
 
 Pass hash to initializer and call `normalize` to normalize data.
 ```ruby
 data = { data: { id: '1', type: 'Manga', attributes: { name: "JoJo's Bizarre Adventure Part 6: Stone Ocean" } } }
-JsonApiNormalizer.new(data).normalize
+Japin::Normalizer.new(data).normalize
 # output
 # {"Manga"=>{"1"=>{"id"=>"1", "attributes"=>{"name"=>"JoJo's Bizarre Adventure Part 6: Stone Ocean"}, "type"=>"Manga"}}}
 ```
@@ -34,7 +34,7 @@ data = { data: [
     { id: '1', type: 'Manga', attributes: { name: "JoJo's Bizarre Adventure Part 5: Golden Wind" } },
     { id: '2', type: 'Manga', attributes: { name: "JoJo's Bizarre Adventure Part 4: Diamond Is Unbreakable" } },
   ] }
-JsonApiNormalizer.new(data).to_h
+Japin::Normalizer.new(data).to_h
 # output
 #{"Manga"=> {
 #  1"=>{"id"=>"1", "attributes"=>{"name"=>"JoJo's Bizarre Adventure Part 5 : Golden Wind"}, "type"=>"Manga"},
@@ -53,7 +53,7 @@ data = {
   ],
   included: [{ id: 1, type: 'Author', attributes: { name: 'Hirohiko Araki' } }]
 }
-JsonApiNormalizer.new(data).to_h
+Japin::Normalizer.new(data).to_h
 # output =>
 # {"Manga"=>
 #   {1=>
@@ -72,7 +72,7 @@ JsonApiNormalizer.new(data).to_h
 And another feature of normalizer is keys and type case transformation. To see all allowed cases see [lucky_case](https://github.com/magynhard/lucky_case) gem
 ```ruby
 data = { data: { id: '1', type: 'Manga', attributes: { name: "JoJo's Bizarre Adventure Part 1: Phantom Blood" } } }
-JsonApiNormalizer.new(data, keys_case: :pascal_case, types_case: :upper_snake_case).normalize
+Japin::Normalizer.new(data, keys_case: :pascal_case, types_case: :upper_snake_case).normalize
 # output
 # {"MANGA"=>{"1"=>{"Id"=>"1", "Attributes"=>{"Name"=>"JoJo's Bizarre Adventure Part 1: Phantom Blood"}, "Type"=>"MANGA"}}}
 ```
@@ -85,7 +85,7 @@ After checking out the repo, run `bin/setup` to install dependencies. Then, run 
 
 ## Contributing
 
-Bug reports and pull requests are welcome on GitHub at https://github.com/Ar2emis/json_api_normalizer.
+Bug reports and pull requests are welcome on GitHub at https://github.com/Ar2emis/japin.
 
 
 ## License
