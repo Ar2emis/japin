@@ -21,6 +21,7 @@ Or install it yourself as:
 ## Usage
 
 Pass hash to initializer and call `normalize` to normalize data.
+
 ```ruby
 data = { data: { id: '1', type: 'Manga', attributes: { name: "JoJo's Bizarre Adventure Part 6: Stone Ocean" } } }
 Japin::Normalizer.new(data).normalize
@@ -29,6 +30,7 @@ Japin::Normalizer.new(data).normalize
 ```
 
 You also can call `to_h` which is an alias of `normalize`.
+
 ```ruby
 data = { data: [
     { id: '1', type: 'Manga', attributes: { name: "JoJo's Bizarre Adventure Part 5: Golden Wind" } },
@@ -43,6 +45,7 @@ Japin::Normalizer.new(data).to_h
 ```
 
 Also normalizer supports includes normalization
+
 ```ruby
 data = {
   data: [
@@ -70,6 +73,7 @@ Japin::Normalizer.new(data).to_h
 ```
 
 And another feature of normalizer is keys and type case transformation. To see all allowed cases see [lucky_case](https://github.com/magynhard/lucky_case) gem
+
 ```ruby
 data = { data: { id: '1', type: 'Manga', attributes: { name: "JoJo's Bizarre Adventure Part 1: Phantom Blood" } } }
 Japin::Normalizer.new(data, keys_case: :pascal_case, types_case: :upper_snake_case).normalize
