@@ -1,4 +1,5 @@
 # Japin
+[![Gem Version](https://badge.fury.io/rb/japin.svg)](https://badge.fury.io/rb/japin)
 
 Japin gem is Ruby implementation of [json-api-normalizer](https://github.com/yury-dymov/json-api-normalizer) provides data normalization and formating for json api response like data.
 
