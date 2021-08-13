@@ -1,15 +1,15 @@
 # frozen_string_literal: true
 
-require_relative 'lib/json_api_normalizer/version'
+require_relative 'lib/japin/version'
 
 Gem::Specification.new do |spec|
-  spec.name          = 'json_api_normalizer'
-  spec.version       = JsonApiNormalizer::VERSION
+  spec.name          = 'japin'
+  spec.version       = Japin::VERSION
   spec.authors       = ['Artem Shevchenko']
   spec.email         = ['artemsheva0510@gmail.com']
 
-  spec.summary       = 'Ruby implementation of NodeJS json_api_normalizer'
-  spec.homepage      = 'https://github.com/Ar2emis/json_api_normalizer'
+  spec.summary       = 'Ruby implementation of NodeJS json-api-normalizer'
+  spec.homepage      = 'https://github.com/Ar2emis/japin'
   spec.license       = 'MIT'
   spec.required_ruby_version = Gem::Requirement.new('>= 2.7.2')
 
@@ -28,4 +28,7 @@ Gem::Specification.new do |spec|
   spec.add_development_dependency 'rubocop', '~> 1.14.0'
   spec.add_development_dependency 'rubocop-performance', '~> 1.10.2'
   spec.add_development_dependency 'rubocop-rspec', '~> 2.2.0'
+  spec.add_development_dependency 'simplecov', '~> 0.21.2'
+
+  spec.add_dependency 'lucky_case', '~> 1.1.0'
 end
